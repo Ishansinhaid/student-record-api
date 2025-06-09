@@ -1,2 +1,10 @@
-# student-record-api
-A Flask-based Student Record Management API developed as part of my DevOps internship project. The goal is to containerize the app using Docker, implement CI/CD with GitHub Actions, and deploy it to AWS EKS using Terraform.
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+        return jsonify({"message": "Student Record API working good!"})
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=5000)
