@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Record Management</title>
+</head>
+<body>
+    <h2>Add Student</h2>
+    <form action="/students" method="post">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required><br><br>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <button type="submit">Add Student</button>
+    </form>
+
+    <h2>All Students</h2>
+    <ul>
+        {% for sid, data in students.items() %}
+            <li>
+                ID: {{ sid }} | Name: {{ data['name'] }}
+
+                <!-- Update form -->
+                <form action="/students/update/{{ sid }}" method="post" style="display:inline;">
+                    <input type="text" name="name" placeholder="New Name" required>
+                    <button type="submit">Update</button>
+                </form>
+
+                <!-- Delete form -->
+                <form action="/students/delete/{{ sid }}" method="post" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% else %}
+            <li>No students found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
