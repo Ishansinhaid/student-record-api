@@ -1,50 +1,27 @@
-# Student Record API
+# Student Record Management API (Flask + HTML)
 
-A simple and lightweight API built with Python and the Flask framework. This project serves as a basic starting point for creating a web API.
+This is a simple Student Record Management application built with Python Flask. It supports basic CRUD (Create, Read, Update, Delete) operations using an in-memory dictionary. A simple HTML interface is also provided.
+
+---
 
 ## 🚀 Features
-- Provides a single GET endpoint to confirm the API is running.
-- Easy to set up and run locally.
-- Minimal dependencies.
 
-## 🔧 Installation & Setup
+- Add student (via HTML form)
+- View all students
+- Update student name
+- Delete student record
+- Fully containerized using Docker
+- Deployment-ready for AWS ECR and EKS
 
-To get a local copy up and running, follow these simple steps.
+---
 
-1.  *Clone the repository*
-    sh
-    git clone [https://github.com/bfarzinhaid/student-record-api.git](https://github.com/bfarzinhaid/student-record-api.git)
-    
+## 🛠 Technologies Used
 
-2.  *Navigate to the project directory*
-    sh
-    cd student-record-api
-    
+- Python 3.9
+- Flask
+- HTML (Jinja templates)
+- Docker
 
-3.  *Install the required packages*
-    *(First, make sure you have created a requirements.txt file by running pip freeze > requirements.txt in your local terminal and pushed it to GitHub).*
-    sh
-    pip install -r requirements.txt
-    
+---
 
-4.  *Run the Flask application*
-    sh
-    python testenv.py
-    
-    The API will be running at http://127.0.0.1:5000/.
-
-## ⚙ API Endpoints
-
-### Get API Status
-
-- *Method:* GET
-- *Route:* /
-- *Description:* Returns a success message to indicate that the API service is active.
-- *Success Response:*
-  - *Code:* 200 OK
-  - *Content:*
-    json
-    {
-      "message": "Student Record API working!"
-    }
-    
+## 🗂 Project Structure
