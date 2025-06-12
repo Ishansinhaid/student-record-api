@@ -39,8 +39,6 @@ student-record-app/
 bash
 Copy
 Edit
-git clone https://github.com/your-username/student-record-app.git
-cd student-record-app
 2. Create a Virtual Environment & Install Dependencies
 bash
 Copy
