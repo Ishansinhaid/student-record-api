@@ -51,7 +51,7 @@ bash
 Copy
 Edit
 python app.py
-Visit: http://localhost:5000
+Visit:  http://192.168.243.178:5000
 
 🐳 Docker Usage
 Build Docker Image
