@@ -39,4 +39,4 @@ jobs:
         IMAGE_TAG: ${{ github.sha }}
       run: |
         aws eks update-kubeconfig --region eu-north-1 --name EKS-Cluster-Role
-        kubectl set image deployment/student-record-api student-record-api=945352217126.dkr.ecr.eu-north-1.amazonaws.com/student-record-api:$IMAGE_TAG
+        kubectl set image deployment/web-app web-app=945352217126.dkr.ecr.eu-north-1.amazonaws.com/student-record-api:$IMAGE_TAG
