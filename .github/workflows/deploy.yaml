@@ -1,9 +1,9 @@
-name: Deploy to EKS
+name: Deploy to Amazon EKS
 
 on:
   push:
     branches:
-      - main  # Change to your branch name if different
+      - main  # Change if your default branch is different
 
 jobs:
   deploy:
@@ -17,18 +17,26 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v2
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: eu-north-1  # Your EKS region
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
+        aws-region: eu-north-1
 
-    - name: Setup kubectl
-      uses: azure/setup-kubectl@v3
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Update kubeconfig
+    - name: Build, tag, and push image to Amazon ECR
+      env:
+        ECR_REPOSITORY: student-record-api
+        IMAGE_TAG: ${{ github.sha }}
       run: |
-        aws eks update-kubeconfig --name EKS-Cluster-Role --region eu-north-1
+        docker build -t student-record-api:$IMAGE_TAG .
+        docker tag student-record-api:$IMAGE_TAG 945352217126.dkr.ecr.eu-north-1.amazonaws.com/student-record-api:$IMAGE_TAG
+        docker push 945352217126.dkr.ecr.eu-north-1.amazonaws.com/student-record-api:$IMAGE_TAG
 
-    - name: Deploy to EKS
+    - name: Update Kubernetes deployment on EKS
+      env:
+        ECR_REPOSITORY: student-record-api
+        IMAGE_TAG: ${{ github.sha }}
       run: |
-        kubectl apply -f deployment.yaml
-        kubectl apply -f My-Service.yaml
-        kubectl apply -f ingress.yaml
+        aws eks update-kubeconfig --region eu-north-1 --name EKS-Cluster-Role
+        kubectl set image deployment/student-record-api student-record-api=945352217126.dkr.ecr.eu-north-1.amazonaws.com/student-record-api:$IMAGE_TAG
