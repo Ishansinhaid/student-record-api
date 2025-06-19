@@ -2,7 +2,7 @@
 This is a simple Student Record Management application built using Python Flask. It allows users to create, read, update, and delete (CRUD) student records via a web interface. Data is stored in an in-memory Python dictionary, making it ideal for learning, prototyping, or small-scale usage.
 
 🚀 Features
-✅ Add a student via HTML form
+✅ Add a  student via HTML form
 ✅ View all student records
 ✅ Update student name
 ✅ Delete a student record
