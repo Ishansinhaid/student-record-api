@@ -63,6 +63,7 @@ Run Docker Container
 bash
 Copy
 Edit
+#trigger CI/CD pipeline
 docker run -p 5000:5000 student-record-api
 ☁️ AWS Deployment (ECR + EKS)
 Push image to Amazon ECR
