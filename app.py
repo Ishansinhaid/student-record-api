@@ -37,3 +37,4 @@ def delete_student(student_id):
 
 if __name__ == '__main__':  # ✅ Fixed
     app.run(debug=True, host='0.0.0.0', port=5000)
+
