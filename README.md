@@ -19,18 +19,26 @@ Designed for learning DevOps, containerization, and cloud deployment practices.
 
 ✅ Compatible with CI/CD pipelines
 
-🛠️ Tech Stack
-🐍 Python 3.9
+✅ Prerequisites
+To build and deploy this project, you should have basic knowledge of:
 
-🌐 Flask (Web framework)
+🐍 Python — for backend development
 
-🧾 HTML + Jinja2 Templates
+🌐 Flask — lightweight web framework
 
-🐳 Docker (Containerization)
+🐳 Docker — for containerizing the application
 
-☁️ AWS ECR & EKS (Deployment)
+🗃️ Git & GitHub — version control and source code management
 
-🔧 GitHub Actions (CI/CD Automation)
+⚙️ GitHub Actions — CI/CD pipeline automation (used instead of Jenkins)
+
+☸️ Kubernetes — for container orchestration on EKS
+
+🐧 Linux Basics — for working with CLI, Docker, and Kubernetes tools
+
+☁️ AWS (ECR, EKS) — for container registry and managed Kubernetes cluster
+
+
 
 🗂️ Project Structure
 bash
@@ -43,8 +51,7 @@ student-record-app/
 ├── README.md            # Project documentation
 └── templates/
     └── index.html       # HTML interface for managing records
-
-🔧 Local Setup Instructions
+🔧 Local Setup Instructions:
 1️⃣ Clone the Repository
 
 bash
@@ -53,7 +60,6 @@ Edit
 git clone https://github.com/Ishansinhaid/student-record-api.git
 cd student-record-api
 2️⃣ Create Virtual Environment & Install Dependencies
-
 bash
 Copy
 Edit
@@ -63,27 +69,33 @@ venv\Scripts\activate
 # For Linux/Mac:
 source venv/bin/activate
 pip install -r requirements.txt
-3️⃣ Run the Flask Application
 
+3️⃣ Run the Flask Application
 bash
 Copy
 Edit
 python app.py
 Visit http://localhost:5000 in your browser.
 
-🐳 Docker Usage
-Build Docker Image
+🐳 Docker Usage->
+🛠️ Build Docker Image:
+[docker build -t student-record-api ]
 
-bash
-Copy
-Edit
-docker build -t student-record-api .
-Run Docker Container
+🚀 Run Docker Container:
+[docker run -p 5000:5000 student-record-api]
 
-bash
-Copy
-Edit
-docker run -p 5000:5000 student-record-api
+☁️ Push Docker Image to Amazon ECR:
+1️⃣ Authenticate Docker with AWS ECR
+[aws ecr get-login-password --region <your-region> | docker login --username AWS --password-stdin <your-account-id>.dkr.ecr.<your-region>.amazonaws.com].
+2️⃣ Create ECR Repository
+[aws ecr create-repository --repository-name student-record-api]
+
+3️⃣ Tag Your Docker Image
+[docker tag student-record-api:latest <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/student-record-record-api:latest].
+
+4️⃣ Push the Image to ECR
+[docker push <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/student-record-api:latest]
+
 ☁️ AWS Deployment Workflow
 ✅ Build & Push Docker image to Amazon ECR
 
