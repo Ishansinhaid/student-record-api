@@ -60,28 +60,50 @@ cd student-record-api]
 3️⃣ Run the Flask Application:
 [python app.py ,Visit http://localhost:5000 in your browser].
 
-🐳 Docker Usage->
-🛠️ Build Docker Image:
-[docker build -t student-record-api ]
-🚀 Run Docker Container:
-[docker run -p 5000:5000 student-record-api]
+## 🐳 Docker Usage  
 
-☁️ Push Docker Image to Amazon ECR:
-1️⃣ Authenticate Docker with AWS ECR
-[aws ecr get-login-password --region <your-region> | docker login --username AWS --password-stdin <your-account-id>.dkr.ecr.<your-region>.amazonaws.com].
-2️⃣ Create ECR Repository
-[aws ecr create-repository --repository-name student-record-api]
-3️⃣ Tag Your Docker Image
-[docker tag student-record-api:latest <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/student-record-record-api:latest].
-4️⃣ Push the Image to ECR
-[docker push <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/student-record-api:latest]
+### 🛠️ Build Docker Image  
+```bash
+docker build -t student-record-api .
+```
 
-☁️ AWS Deployment Workflow:
-✅ Build & Push Docker image to Amazon ECR
-✅ Create and configure EKS Cluster
-✅ Apply Kubernetes Manifests (Deployment, Service, Ingress)
-✅ Expose application using LoadBalancer / Ingress Controller
-✅ Automate CI/CD with GitHub Actions.
+### 🚀 Run Docker Container  
+```bash
+docker run -p 5000:5000 student-record-api
+```
+
+> Access the app at: [http://localhost:5000](http://localhost:5000)  
+
+## ☁️ Push Docker Image to Amazon ECR  
+
+### 1️⃣ Authenticate Docker with AWS ECR  
+```bash
+aws ecr get-login-password --region <your-region> | docker login --username AWS --password-stdin <your-account-id>.dkr.ecr.<your-region>.amazonaws.com
+```
+
+### 2️⃣ Create ECR Repository  
+```bash
+aws ecr create-repository --repository-name student-record-api
+```
+
+### 3️⃣ Tag Your Docker Image  
+```bash
+docker tag student-record-api:latest <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/student-record-api:latest
+```
+
+### 4️⃣ Push the Image to ECR  
+```bash
+docker push <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/student-record-api:latest
+```
+
+## ☁️ AWS Deployment Workflow  
+
+- ✅ Build & Push Docker image to **Amazon ECR**  
+- ✅ Create and configure **EKS Cluster**  
+- ✅ Apply Kubernetes Manifests (**Deployment, Service, Ingress**)  
+- ✅ Expose application using **LoadBalancer / Ingress Controller**  
+- ✅ Automate CI/CD with **GitHub Actions**  
+
 
 #ARCHITECTURE DIAGRAM:  <img width="1536" height="1024" alt="ChatGPT Image Jun 26, 2025, 03_20_59 PM" src="https://github.com/user-attachments/assets/6f860034-e33f-4cb6-8ce4-6c70219ec2e1" />
 
@@ -89,24 +111,28 @@ cd student-record-api]
 This project uses a CI/CD pipeline powered by GitHub Actions, which automates the Docker image build, push to Amazon ECR, and deployment to EKS.
 
 
-🔥 How It Works:
-✅ Step 1: Code is pushed to GitHub Repository
-✅ Step 2: GitHub Actions workflow triggers
-✅ Step 3: Docker image is built and pushed to Amazon ECR
-✅ Step 4: Deployment to Amazon EKS happens via GitHub Actions
-✅ Step 5: Ingress + Load Balancer expose the app to end-users
-✅ Step 6: User interacts with the app running inside Kubernetes Pods
+## 🔥 How It Works  
+
+- ✅ **Step 1:** Code is pushed to **GitHub Repository**  
+- ✅ **Step 2:** **GitHub Actions** workflow triggers  
+- ✅ **Step 3:** Docker image is built and pushed to **Amazon ECR**  
+- ✅ **Step 4:** Deployment to **Amazon EKS** happens via **GitHub Actions**  
+- ✅ **Step 5:** **Ingress + Load Balancer** expose the app to end-users  
+- ✅ **Step 6:** User interacts with the app running inside **Kubernetes Pods**  
+
 
 #FLOW CHART OF CI/CD PIPELINE: <img width="1536" height="1024" alt="flowchartBEST" src="https://github.com/user-attachments/assets/c8a8e10f-4b97-48a5-949d-b7bcfbb0f430" />
 #CLOUD SHELL :  <img width="1920" height="1080" alt="Screenshot (27)" src="https://github.com/user-attachments/assets/89eabd71-3604-4785-8754-69a79a871e26" />
 
-📝 Conclusion
-In this project, we successfully built a complete CI/CD pipeline using GitHub Actions, Docker, Amazon ECR, and Amazon EKS to deploy a simple Flask-based Student Record Management API.
+## 📝 Conclusion  
 
-This project demonstrated:
-Automating Docker image builds and deployments using GitHub Actions
-Managing container images with Amazon ECR
-Deploying scalable applications on Amazon EKS with Kubernetes manifests
-Exposing applications via Ingress and Load Balancer for public access
-This setup is designed for learning and DevOps practice purposes.
-For production-grade pipelines.
+In this project, we successfully built a complete **CI/CD pipeline using GitHub Actions, Docker, Amazon ECR, and Amazon EKS** to deploy a simple **Flask-based Student Record Management API**.  
+
+This project demonstrated:  
+- ✅ Automating Docker image builds and deployments using **GitHub Actions**  
+- ✅ Managing container images with **Amazon ECR**  
+- ✅ Deploying scalable applications on **Amazon EKS** with Kubernetes manifests  
+- ✅ Exposing applications via **Ingress and Load Balancer** for public access  
+
+> This setup is designed for **learning and DevOps practice purposes**.  
+> For production-grade pipelines, follow industry best practices and official documentation.  
