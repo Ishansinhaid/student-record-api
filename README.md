@@ -38,18 +38,24 @@ To build and deploy this project, you should have basic knowledge of:
 
 ☁️ AWS (ECR, EKS) — for container registry and managed Kubernetes cluster
 
-
 ## 🗂️ Project Structure  
 
 ```
 student-record-app/
-├── app.py               # Flask application
-├── requirements.txt     # Python dependencies
-├── Dockerfile           # Docker build configuration
-├── README.md            # Project documentation
-└── templates/
-    └── index.html       # HTML interface for managing records
+├── app.py                   # Flask application
+├── requirements.txt         # Python dependencies
+├── Dockerfile               # Docker build configuration
+├── README.md                # Project documentation
+├── templates/
+│   └── index.html           # HTML interface for managing records
+├── k8s/                     # Kubernetes YAML manifests
+│   ├── deployment.yaml      # Deployment configuration
+│   ├── service.yaml         # Service configuration
+│   └── ingress.yaml         # Ingress configuration
 ```
+
+
+
 
 ## 🔧 Local Setup Instructions  
 
