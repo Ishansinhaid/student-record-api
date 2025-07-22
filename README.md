@@ -51,14 +51,34 @@ student-record-app/
     └── index.html       # HTML interface for managing records
 ```
 
-🔧 Local Setup Instructions:
-1️⃣ Clone the Repository:
-[git clone https://github.com/Ishansinhaid/student-record-api.git
-cd student-record-api]
-2️⃣ Create Virtual Environment & Install Dependencies:
-[python -m venv venv]
-3️⃣ Run the Flask Application:
-[python app.py ,Visit http://localhost:5000 in your browser].
+## 🔧 Local Setup Instructions  
+
+### 1️⃣ Clone the Repository  
+```bash
+git clone https://github.com/Ishansinhaid/student-record-api.git
+cd student-record-api
+```
+
+### 2️⃣ Create Virtual Environment & Install Dependencies  
+```bash
+python -m venv venv
+
+# For Windows:
+venv\Scripts\activate
+
+# For Linux/Mac:
+source venv/bin/activate
+
+pip install -r requirements.txt
+```
+
+### 3️⃣ Run the Flask Application  
+```bash
+python app.py
+```
+
+Visit: [http://localhost:5000](http://localhost:5000) in your browser.  
+
 
 ## 🐳 Docker Usage  
 
