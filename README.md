@@ -2,28 +2,46 @@
 A simple web application built with Python Flask for managing student records.
 Designed for learning DevOps, containerization, and cloud deployment practices.
 
-🚀 Features:
+🚀 Features
 ✅ Add student records via a web interface
+
 ✅ View all student records
-✅ Update student information.
+
+✅ Update student information
+
 ✅ Delete student records
+
 ✅ Lightweight – uses in-memory storage (no database)
+
 ✅ Fully containerized with Docker
+
 ✅ Deployment-ready for AWS ECR & EKS
+
 ✅ Compatible with CI/CD pipelines
 
 ✅ Prerequisites
 To build and deploy this project, you should have basic knowledge of:
+
 🐍 Python — for backend development
+
 🌐 Flask — lightweight web framework
+
 🐳 Docker — for containerizing the application
+
 🗃️ Git & GitHub — version control and source code management
+
 ⚙️ GitHub Actions — CI/CD pipeline automation (used instead of Jenkins)
-☸️ Kubernetes — for container orchestration on EKS.
-🐧 Linux Basics — for working with CLI, Docker, and Kubernetes tools
+
+☸️ Kubernetes — for container orchestration on EKS
+
+🐧 Linux Basics — working with CLI, Docker, and Kubernetes tools
+
 ☁️ AWS (ECR, EKS) — for container registry and managed Kubernetes cluster
 
-🗂️ Project Structure:
+
+## 🗂️ Project Structure  
+
+```
 student-record-app/
 ├── app.py               # Flask application
 ├── requirements.txt     # Python dependencies
@@ -31,6 +49,8 @@ student-record-app/
 ├── README.md            # Project documentation
 └── templates/
     └── index.html       # HTML interface for managing records
+```
+
 🔧 Local Setup Instructions:
 1️⃣ Clone the Repository:
 [git clone https://github.com/Ishansinhaid/student-record-api.git
